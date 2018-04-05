@@ -1,6 +1,38 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { login } from '../../redux/actions/user';
+import { styled } from 'styletron-react';
+
+const Container = styled('form', {
+  backgroundColor: 'white',
+  borderRadius: '.2em',
+  color: '#444',
+  padding: '20px',
+  margin: '0 auto',
+  maxWidth: '250px',
+  listStyleType: 'none'
+});
+
+const Label = styled('label', {
+  color: '#444',
+  fontSize: '12px',
+  display: 'block',
+})
+
+const Input = styled('input', {
+  boxSizing: 'border-box',
+  display: 'block',
+  marginBottom: '.5em',
+  width: '100%',
+  maxWidth: '250px',
+});
+
+const Button = styled('button', {
+  display: 'block',
+  marginLeft: 'auto',
+  marginRight: 'auto',
+  marginTop: '1em'
+});
 
 class LoginForm extends Component {
   constructor(props) {
@@ -19,13 +51,13 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <form>
-        <label htmlFor="email">Email</label>
-        <input type="email" name="email" value={this.state.email} onChange={this.handleEmailChange} />
-        <label htmlFor="password">Password</label>
-        <input type="password" name="password" value={this.state.password} onChange={this.handlePasswordChange}/>
-        <input type="submit" onClick={this.handleSubmit} value="Login"/>
-      </form>
+      <Container>
+        <Label htmlFor="email">Email</Label>
+        <Input type="email" name="email" value={this.state.email} onChange={this.handleEmailChange} />
+        <Label htmlFor="password">Password</Label>
+        <Input type="password" name="password" value={this.state.password} onChange={this.handlePasswordChange}/>
+        <Button type="submit" onClick={this.handleSubmit}>Login</Button>
+      </Container>
     )
   }
 }
