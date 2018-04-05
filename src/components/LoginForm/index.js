@@ -30,4 +30,8 @@ class LoginForm extends Component {
   }
 }
 
-export default connect(null, { login })(LoginForm);
+export default connect(null, dispatch => ({
+  // This is only a function for the sake of calling login at runtime so we can stub this in our unit test
+  // We can find a better way to stub this dependency so we don't make the http request during tests.
+  login: (email, password) => dispatch(login(email, password))
+}))(LoginForm);
