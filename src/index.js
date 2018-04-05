@@ -10,7 +10,7 @@ import createStore from './redux/createStore';
 import createHistory from 'history/createBrowserHistory';
 import registerServiceWorker from './registerServiceWorker';
 
-import App from './components/App';
+import LoginForm from './components/LoginForm';
 import Providers from './components/Providers';
 
 // Setup client providers
@@ -24,7 +24,7 @@ const app = (
     reduxStore={store}
   >
     <Router history={history}>
-      <Route exact path="/" component={App} />
+      <Route exact path="/" component={LoginForm} />
     </Router>
   </Providers>
 );
