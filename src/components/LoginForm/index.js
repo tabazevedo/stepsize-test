@@ -12,9 +12,4 @@ const LoginForm = ({ login }) => (
   </form>
 );
 
-export default connect(
-  function mapStateToProps(state) {
-    return { endpoint: state.config['API_ENDPOINT'] };
-  },
-  { login: userLogin }
-)(LoginForm);
+export default connect(null, { login: userLogin })(LoginForm);
