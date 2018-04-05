@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 const PullRequestList = ({ pullRequests }) => {
   return pullRequests.map(pr =>
     <PullRequest
+      key={pr.sha}
       title={pr.title}
       body={pr.body}
       tags={pr.tags}

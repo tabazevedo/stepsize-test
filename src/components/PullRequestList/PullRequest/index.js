@@ -58,7 +58,7 @@ const PullRequest = ({ author, body, tags, date, title }) => (
             {title}
           </Title>
           <Tags>
-            {tags.map(tag => <Tag><span>{tag}</span></Tag>)}
+            {tags.map(tag => <Tag key={tag}><span>{tag}</span></Tag>)}
           </Tags>
           <Dated>
             Created on {date} by {author.username}
