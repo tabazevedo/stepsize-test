@@ -9,7 +9,7 @@ const PullRequestList = ({ pullRequests }) => {
       title={pr.title}
       body={pr.body}
       tags={pr.tags}
-      timestamp={pr.timestamp}
+      date={pr.date}
       author={pr.author}
     />
   );

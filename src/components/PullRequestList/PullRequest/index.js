@@ -2,11 +2,11 @@ import React from 'react';
 import { styled } from 'styletron-react';
 
 const Avatar = styled('img', {
-  borderRadius: '64px',
+  borderRadius: '50px',
   display: 'inline-block',
-  height: '64px',
+  height: '50px',
   marginRight: '10px',
-  width: '64px',
+  width: '50px',
 });
 
 const Container = styled('li', {
@@ -48,7 +48,7 @@ const Tag = styled('li', {
   color: 'white'
 });
 
-const PullRequest = ({ author, body, tags, timestamp, title }) => (
+const PullRequest = ({ author, body, tags, date, title }) => (
   <Container>
     <header>
       <TitleContainer>
@@ -61,7 +61,7 @@ const PullRequest = ({ author, body, tags, timestamp, title }) => (
             {tags.map(tag => <Tag><span>{tag}</span></Tag>)}
           </Tags>
           <Dated>
-            Created on {timestamp} by {author.username}
+            Created on {date} by {author.username}
           </Dated>
         </div>
       </TitleContainer>
