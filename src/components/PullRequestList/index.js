@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 const PullRequestList = ({ pullRequests }) => {
   return pullRequests.map(pr =>
@@ -12,4 +13,8 @@ const PullRequestList = ({ pullRequests }) => {
   );
 }
 
-export default PullRequestList;
+export default connect(
+  state => ({
+    pullRequests: state.pullRequests
+  })
+)(PullRequestList);

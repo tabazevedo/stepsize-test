@@ -2,11 +2,11 @@ import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { mount } from 'enzyme';
 import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
 import LoginForm from './index';
-import { userLogin } from '../../redux/actions/user';
 
-const mockStore = configureStore();
+const mockStore = configureStore([thunk]);
 
 describe('components/LoginForm', () => {
   it('dispatches login action with username and password as arguments on submit', () => {
@@ -24,8 +24,7 @@ describe('components/LoginForm', () => {
 
     const actions = store.getActions();
 
-    expect(actions).toEqual([
-      userLogin('hello@gmail.com', 'password1')
-    ]);
+    expect(actions.length).toEqual(1);
+    expect(typeof actions[0]).toEqual('function');
   });
 });

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { userLogin } from '../../redux/actions/user';
+import { login } from '../../redux/actions/user';
 
 class LoginForm extends Component {
   constructor(props) {
@@ -12,7 +12,10 @@ class LoginForm extends Component {
   handleEmailChange = (e) => this.setState({ email: e.target.value });
   handlePasswordChange = (e) => this.setState({ password: e.target.value });
 
-  handleSubmit = () => this.props.login(this.state.email, this.state.password);
+  handleSubmit = (e) => {
+    this.props.login(this.state.email, this.state.password);
+    e.preventDefault();
+  }
 
   render() {
     return (
@@ -27,4 +30,4 @@ class LoginForm extends Component {
   }
 }
 
-export default connect(null, { login: userLogin })(LoginForm);
+export default connect(null, { login })(LoginForm);
