@@ -1,27 +1,76 @@
 import React from 'react';
+import { styled } from 'styletron-react';
+
+const Avatar = styled('img', {
+  borderRadius: '64px',
+  display: 'inline-block',
+  height: '64px',
+  marginRight: '10px',
+  width: '64px',
+});
+
+const Container = styled('li', {
+  backgroundColor: 'white',
+  borderRadius: '.2em',
+  color: '#444',
+  padding: '20px',
+  margin: '20px 20px 0 20px',
+  listStyleType: 'none'
+});
+
+const TitleContainer = styled('div', {
+  display: 'flex',
+  flexDirection: 'row'
+});
+
+const Title = styled('h2', {
+  fontSize: '20px',
+  marginBottom: '5px',
+  display: 'inline'
+});
+
+const Dated = styled('p', {
+  fontSize: '12px'
+});
+
+const Tags = styled('ul', {
+  listStyleType: 'none',
+  display: 'inline'
+});
+
+const Tag = styled('li', {
+  borderRadius: '.2em',
+  backgroundColor: 'rgb(217, 47, 133)',
+  display: 'inline-block',
+  fontSize: '14px',
+  padding: '.2em .4em',
+  marginLeft: '.4em',
+  color: 'white'
+});
 
 const PullRequest = ({ author, body, tags, timestamp, title }) => (
-  <li>
+  <Container>
     <header>
-      <img src={author.avatarUrl} />
-      <div>
+      <TitleContainer>
+        <Avatar src={author.avatarUrl} />
         <div>
-          <h2>
+          <Title>
             {title}
-          </h2>
-          <ul>
-            {tags.map(tag => <li>{tag}</li>)}
-          </ul>
+          </Title>
+          <Tags>
+            {tags.map(tag => <Tag><span>{tag}</span></Tag>)}
+          </Tags>
+          <Dated>
+            Created on {timestamp} by {author.username}
+          </Dated>
         </div>
-        <p>
-          Created on {timestamp} by {author.username}
-        </p>
-      </div>
+      </TitleContainer>
     </header>
+    <hr />
     <p>
       {body}
     </p>
-  </li>
+  </Container>
 );
 
 export default PullRequest;

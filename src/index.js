@@ -26,10 +26,10 @@ const app = (
     reduxStore={store}
   >
     <Router history={history}>
-      <div>
-        <Route path="/" component={LoginForm} />
+      <App>
+        <Route exact path="/" component={LoginForm} />
         <Route path="/pull-requests" component={PullRequestList}/>
-      </div>
+      </App>
     </Router>
   </Providers>
 );

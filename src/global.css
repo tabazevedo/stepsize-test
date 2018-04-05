@@ -1,5 +1,9 @@
 @import '~reset-css';
 
-body {
+body, html {
+  background-color: rgb(34, 197, 245);
   font-family: sans-serif;
+  line-height: 1.2em;
+  height: 100%;
+  width: 100%;
 }

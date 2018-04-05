@@ -1,9 +1,14 @@
 import React from 'react';
+import { styled } from 'styletron-react';
+
+const Container = styled('div', {
+  padding: '100px',
+});
 
 const App = ({ children }) => (
-  <div>
+  <Container>
     {children}
-  </div>
+  </Container>
 );
 
 export default App;

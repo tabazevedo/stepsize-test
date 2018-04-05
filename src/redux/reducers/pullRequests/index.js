@@ -5,11 +5,11 @@ function mapPullRequestPayload(payload) {
     .map(sha => ({
       ...payload[sha],
       sha: sha
-    }));
+    }))
+    .sort((a, b) => b.relevancy - a.relevancy)
 }
 
 export default (state = [], action) => {
-  console.log(action);
   switch (action.type) {
     case USER_LOGIN:
       return mapPullRequestPayload(action.payload);
