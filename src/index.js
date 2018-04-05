@@ -10,7 +10,9 @@ import createStore from './redux/createStore';
 import createHistory from 'history/createBrowserHistory';
 import registerServiceWorker from './registerServiceWorker';
 
+import App from './components/App';
 import LoginForm from './components/LoginForm';
+import PullRequestList from './components/PullRequestList';
 import Providers from './components/Providers';
 
 // Setup client providers
@@ -24,7 +26,10 @@ const app = (
     reduxStore={store}
   >
     <Router history={history}>
-      <Route exact path="/" component={LoginForm} />
+      <div>
+        <Route path="/" component={LoginForm} />
+        <Route path="/pull-requests" component={PullRequestList}/>
+      </div>
     </Router>
   </Providers>
 );

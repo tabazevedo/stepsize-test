@@ -1,11 +1,8 @@
 import React from 'react';
 
-const App = () => (
+const App = ({ children }) => (
   <div>
-    <h1>Stepsize</h1>
-    <p>
-      Hello, world!
-    </p>
+    {children}
   </div>
 );
 

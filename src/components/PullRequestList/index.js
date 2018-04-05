@@ -1,4 +1,6 @@
 import React from 'react';
+import PullRequest from './PullRequest';
+
 import { connect } from 'react-redux';
 
 const PullRequestList = ({ pullRequests }) => {
