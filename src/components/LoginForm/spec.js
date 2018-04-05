@@ -14,10 +14,10 @@ describe('components/LoginForm', () => {
     const wrapper = mount(<LoginForm store={store} />).find('form');
 
     const email = wrapper.find({ name: 'email' });
-    email.simulate('change', { target: { name: 'email', value: 'hello@gmail.com' }});
+    email.simulate('change', { target: { value: 'hello@gmail.com' }});
 
     const password = wrapper.find({ name: 'password' });
-    password.simulate('change', { target: { name: 'password', value: 'password1' }});
+    password.simulate('change', { target: { value: 'password1' }});
 
     const submit = wrapper.find({ type: 'submit' });
     submit.simulate('click');
